@@ -4,6 +4,13 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.js@/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader'
+                }
+            },
+            {
                 test: /\.html$/,
                 use: [
                     {
@@ -12,6 +19,12 @@ module.exports = {
                     }
                 ]
             },
+            {
+                test: /\.(png|svg||jpg|gif)$/,
+                use: [
+                    'file-loader'
+                ]
+            }
         ]
     },
     plugins: [
